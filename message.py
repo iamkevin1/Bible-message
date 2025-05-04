@@ -1,3 +1,20 @@
+import os
+from dotenv import load_dotenv
+from pymongo import MongoClient
+
+# Load the .env file
+load_dotenv()
+
+# Get the MongoDB URI from environment
+mongo_uri = os.getenv("MONGODB_URI")
+
+# Connect to MongoDB Atlas
+client = MongoClient(mongo_uri)
+
+# Select your database and collection
+db = client["bible_messages"]
+collection = db["messages"]
+
 import streamlit as st
 from datetime import date
 
